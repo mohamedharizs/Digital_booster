@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DigitalBoost Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // Blue
+                        secondary: '#1f2937', // Dark Gray
+                        accent: '#f59e0b', // Amber
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .page-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto pl-0 pr-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-rocket text-primary text-2xl"></i>
+                <span class="text-2xl font-bold text-secondary">DigitalBoost</span>
+            </div>
+            <div class="flex items-center space-8">
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html" class="text-secondary hover:text-primary transition">Home</a></li>
+                    <li><a href="service.html" class="text-secondary hover:text-primary transition">Services</a></li>
+                    <li><a href="#contact" class="text-secondary hover:text-primary transition">Contact</a></li>
+                </ul>
+                <a href="tel:+15551234567" class="hidden md:block bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full ml-8 transition">
+                    <i class="fas fa-phone-alt mr-2"></i>Call Now
+                </a>
+            </div>
+            <button class="md:hidden text-secondary" id="mobile-menu-btn">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-2">
+            <a href="index.html" class="block py-2 text-secondary hover:text-primary">Home</a>
+            <a href="service.html" class="block py-2 text-secondary hover:text-primary">Services</a>
+            <a href="#contact" class="block py-2 text-secondary hover:text-primary">Contact</a>
+            <a href="tel:+15551234567" class="block py-2 bg-primary text-white font-semibold text-center rounded-full mt-2">
+                <i class="fas fa-phone-alt mr-2"></i>Call Now
+            </a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header h-64 flex items-center">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl md:text-2xl">Get in touch with our team to discuss your digital marketing needs</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-3xl font-bold text-secondary mb-8">Get In Touch</h2>
+                    <div class="space-y-6">
+                        <!-- Phone -->
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-secondary">Phone</h3>
+                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-secondary">Email</h3>
+                                <p class="text-gray-600">info@digitalboost.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-secondary">Address</h3>
+                                <p class="text-gray-600">123 Digital Street<br>Tech City, TC 12345<br>United States</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold text-secondary mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-secondary mb-6">Send Us a Message</h2>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Embed -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-secondary mb-4">Find Us</h2>
+                <p class="text-xl text-gray-600">Visit our office or get directions</p>
+            </div>
+            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.241264875045!2d-73.98784868459375!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1640992800000!5m2!1sen!2sus"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-rocket text-primary text-2xl"></i>
+                        <span class="text-2xl font-bold">DigitalBoost</span>
+                    </div>
+                    <p class="text-gray-400">Empowering businesses with innovative digital marketing solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">SEO Optimization</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Social Media</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Web Development</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Branding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 DigitalBoost Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/15551234567" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
