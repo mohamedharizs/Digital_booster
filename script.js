@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const parent = toggle.closest('.dropdown');
     toggle.addEventListener('click', function(evt) {
       // On small screens, expand/collapse submenu instead of navigating
-      if (window.innerWidth <= 680) {
+      if (window.innerWidth <= 768) {
         evt.preventDefault();
         parent.classList.toggle('open');
         return;

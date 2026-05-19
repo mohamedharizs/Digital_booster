@@ -144,16 +144,22 @@ button {font-family:inherit;}
   .nav-inner {padding:14px 18px;gap:12px;}
   .brand {color:#0f172a;}
   .mobile-btn {display:block;color:#0f172a;}
-  .menu {position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:14px 0;overflow:hidden;display:none;opacity:0;transform:translateY(-12px);transition:opacity .24s ease,transform .24s ease;}
+  .menu {position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:0;overflow:hidden;display:none;opacity:0;transform:translateY(-10px);transition:opacity .22s ease,transform .22s ease;z-index:92;}
   .menu.menu-open {display:flex;opacity:1;transform:translateY(0);}
   .menu a,
-  .dropdown-toggle {color:#0f172a;display:block;padding:14px 20px;}
-  .menu .menu-item {width:100%;}
+  .dropdown-toggle {color:#0f172a;display:block;width:100%;padding:16px 22px;text-align:center;font-weight:700;transition:background .18s ease,color .18s ease;}
+  .menu a:hover,
+  .dropdown-toggle:hover {background:rgba(15,23,42,.04);}
+  .menu .menu-item {width:100%;justify-content:center;}
+  .dropdown-toggle {justify-content:center;gap:8px;}
+  .menu a:not(.dropdown-toggle) {border-bottom:1px solid rgba(15,23,42,.08);}
+  .menu a:last-child {border-bottom:none;}
   .nav-actions {width:100%;justify-content:flex-end;}
   .btn {width:auto;}
-  .dropdown-menu {position:static;top:auto;left:auto;box-shadow:none;transform:none;opacity:1;visibility:visible;display:none;padding-left:18px;}
-  .dropdown.open .dropdown-menu {display:flex;}
-  .dropdown-menu a {padding:10px 20px;color:rgba(15,23,42,.92);}
+  .dropdown-menu {position:relative;top:auto;left:auto;box-shadow:none;padding:0;margin:0;transform:none;opacity:1;visibility:visible;display:none;background:transparent;}
+  .dropdown.open .dropdown-menu {display:flex;flex-direction:column;}
+  .dropdown-menu a {padding:14px 20px;color:rgba(15,23,42,.92);font-weight:600;border-bottom:1px solid rgba(15,23,42,.08);}
+  .dropdown-menu a:last-child {border-bottom:none;}
   .hero {padding:60px 0;}
   .hero-grid {grid-template-columns:1fr;gap:28px;}
   .hero-copy {text-align:center;}
