@@ -2,21 +2,34 @@ document.addEventListener("DOMContentLoaded", function() {
   const mobileBtn = document.getElementById("mobileBtn");
   const menu = document.getElementById("menu");
   mobileBtn.addEventListener("click", () => {
-    menu.classList.toggle("menu-open");
+    const isOpen = menu.classList.toggle("menu-open");
+    if (!isOpen) {
+      document.querySelectorAll('.dropdown.open').forEach((drop) => {
+        drop.classList.remove('open');
+        const toggle = drop.querySelector('.dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 
   // Dropdown behaviour: desktop uses CSS hover; mobile toggles submenu on click
   const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
   dropdownToggles.forEach((toggle) => {
     const parent = toggle.closest('.dropdown');
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', function(evt) {
-      // On small screens, expand/collapse submenu instead of navigating
-      if (window.innerWidth <= 768) {
+      if (window.matchMedia("(max-width:768px)").matches) {
         evt.preventDefault();
-        parent.classList.toggle('open');
+        const openDropdown = document.querySelector('.dropdown.open');
+        if (openDropdown && openDropdown !== parent) {
+          openDropdown.classList.remove('open');
+          const openToggle = openDropdown.querySelector('.dropdown-toggle');
+          if (openToggle) openToggle.setAttribute('aria-expanded', 'false');
+        }
+        const isOpen = parent.classList.toggle('open');
+        this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         return;
       }
-      // on desktop allow normal navigation (anchor to #home)
     });
   });
 
