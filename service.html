@@ -1,250 +1,177 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Digital Booster</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p8Ahn6RJxU1lXW8vAMT8qI6bnv3KHpbx7AjvK5X73ckmVZqQddqZnXQq3bvj+kBW5x0wR1CtJrHhXsD0PxE2Qg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            color-scheme: light;
-            --color-primary: #0f72ff;
-            --color-secondary: #0f172a;
-            --color-surface: #f8fafc;
-            --color-muted: #64748b;
-            --color-accent: #22c55e;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f8fafc;
-            color: var(--color-secondary);
-        }
-
-        .btn-primary {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #0d5fd6;
-        }
-
-        .page-header {
-            background: radial-gradient(circle at top right, rgba(15, 114, 255, 0.2), transparent 35%),
-                linear-gradient(180deg, rgba(15, 114, 255, 0.16), rgba(248, 250, 252, 0.95));
-        }
-
-        .section-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-        }
-
-        .floating-btn {
-            position: fixed;
-            bottom: 18px;
-            width: 58px;
-            height: 58px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
-            transition: transform 0.24s ease, box-shadow 0.24s ease;
-            z-index: 50;
-        }
-
-        .floating-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .call-float {
-            left: 18px;
-            background: var(--color-secondary);
-        }
-
-        .whatsapp-float {
-            right: 18px;
-            background: #25d366;
-        }
-
-        .nav-link {
-            transition: color 0.25s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--color-primary);
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | DigitalBooster</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-slate-50 text-slate-900">
-    <header class="bg-white shadow-sm sticky top-0 z-40">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
-                <span class="text-lg font-semibold tracking-tight">Digital Booster</span>
-            </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#about" class="nav-link">About</a>
-                <a href="service.html" class="nav-link">Services</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+<body>
+    <header class="nav" id="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">DigitalBooster</a>
+            <nav class="menu" id="menu">
+                <div class="menu-item dropdown" id="homeDropdown">
+                    <a href="index.html" class="dropdown-toggle">Home <span class="caret">▾</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html#about">About</a>
+                        <a href="index.html#portfolio">Portfolio</a>
+                    </div>
+                </div>
+                <a href="service.html">Services</a>
+                <a href="contact.html">Contact</a>
             </nav>
-            <div class="hidden md:flex items-center gap-3">
-                <a href="tel:+15551234567" class="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-sm">
-                    <i class="fas fa-phone-alt"></i> Call
-                </a>
+            <div class="nav-actions">
+                <a class="btn btn-primary" href="contact.html">Book Free Consultation</a>
+                <button id="mobileBtn" class="mobile-btn" aria-label="Toggle menu">&#9776;</button>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-slate-700" aria-label="Toggle navigation">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden">
-            <a href="index.html" class="block py-2 text-slate-700">Home</a>
-            <a href="index.html#about" class="block py-2 text-slate-700">About</a>
-            <a href="service.html" class="block py-2 text-slate-700">Services</a>
-            <a href="contact.html" class="block py-2 text-slate-700">Contact</a>
-            <a href="tel:+15551234567" class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-white transition">Call Now</a>
         </div>
     </header>
 
     <main>
-        <section class="page-header py-24">
-            <div class="container mx-auto px-4 text-center text-slate-900">
-                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Our services</p>
-                <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Digital marketing services designed to grow your brand.</h1>
-                <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">From SEO to websites and social media, we deliver polished digital solutions that feel simple and professional.</p>
-                <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                    <a href="contact.html" class="btn-primary inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold shadow-lg">Book a strategy call</a>
-                    <a href="index.html#about" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 transition hover:border-slate-400">Learn about us</a>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Our Services</span>
+                    <h1 class="hero-title">Marketing services built to scale your business.</h1>
+                    <p class="hero-sub">From SEO and ads to websites and branding, we create the digital strategy that turns browsers into buyers.</p>
+                    <div class="hero-actions hero-ctas">
+                        <a class="btn btn-primary" href="contact.html">Start a Project</a>
+                        <a class="btn btn-secondary" href="index.html">Back to Home</a>
+                    </div>
+                </div>
+                <div class="hero-panel">
+                    <div class="panel-card">
+                        <p class="panel-label">Full-service Marketing</p>
+                        <h2>Services designed for ambitious brands.</h2>
+                        <ul class="panel-list">
+                            <li>Digital strategy & campaign planning</li>
+                            <li>Paid media, organic growth, and creative</li>
+                            <li>Performance reporting and ongoing growth</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="services" class="py-20">
-            <div class="container mx-auto px-4">
-                <div class="mx-auto max-w-3xl text-center">
-                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">What we do</p>
-                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Expert digital services for every stage of growth.</h2>
+        <section class="section section-soft">
+            <div class="container">
+                <div class="section-header center">
+                    <h2>What We Do</h2>
+                    <p>Every service is built around measurable growth, stronger brand presence and a better customer journey.</p>
                 </div>
-
-                <div class="mt-14 grid gap-6 lg:grid-cols-3">
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fas fa-search text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">SEO Optimization</h3>
-                        <p class="mt-4 text-slate-600">Boost organic traffic with a reliable SEO strategy and technical optimization.</p>
+                <div class="cards grid-3">
+                    <article class="card">
+                        <div class="card-icon">&#x1F50E;</div>
+                        <h3>SEO</h3>
+                        <p>Improve search visibility and attract qualified buyers with optimized content and local search strategy.</p>
                     </article>
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fab fa-facebook-f text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">Social Media</h3>
-                        <p class="mt-4 text-slate-600">Create consistent content, paid ads, and audience engagement on social platforms.</p>
+                    <article class="card">
+                        <div class="card-icon">&#x1F4F1;</div>
+                        <h3>Social Ads</h3>
+                        <p>Engage audiences with high-performing ads on Facebook, Instagram, and TikTok.</p>
                     </article>
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fas fa-laptop-code text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">Website Design</h3>
-                        <p class="mt-4 text-slate-600">Launch a professional website with modern design, fast performance, and strong mobile usability.</p>
+                    <article class="card">
+                        <div class="card-icon">&#x1F4B8;</div>
+                        <h3>PPC</h3>
+                        <p>Drive profitable traffic through search and display campaigns with data-led targeting.</p>
                     </article>
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fas fa-bullhorn text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">Ads Management</h3>
-                        <p class="mt-4 text-slate-600">Grow with ads that target your best customers and improve campaign performance over time.</p>
+                    <article class="card">
+                        <div class="card-icon">&#x1F5A5;</div>
+                        <h3>Web Design</h3>
+                        <p>Create conversion-focused sites that look premium and perform fast across devices.</p>
                     </article>
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fas fa-pen-nib text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">Content Creation</h3>
-                        <p class="mt-4 text-slate-600">Stand out with copy, visuals, and campaigns that clearly communicate your message.</p>
+                    <article class="card">
+                        <div class="card-icon">&#x1F3A8;</div>
+                        <h3>Branding</h3>
+                        <p>Build a memorable identity and messaging system that stands out in your market.</p>
                     </article>
-                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
-                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
-                            <i class="fas fa-shield-alt text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-slate-900">Brand Strategy</h3>
-                        <p class="mt-4 text-slate-600">Clarify your positioning, messaging, and visual identity for consistent audience impact.</p>
+                    <article class="card">
+                        <div class="card-icon">&#x1F4C8;</div>
+                        <h3>Lead Gen</h3>
+                        <p>Generate more qualified leads with landing pages, nurture funnels, and paid campaigns.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 bg-slate-50">
-            <div class="container mx-auto px-4">
-                <div class="rounded-[2rem] bg-white p-10 shadow-xl sm:p-14">
-                    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Start your project</p>
-                            <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Get a custom plan for your business.</h2>
-                            <p class="mt-5 text-slate-600">We’ll help you choose the right services and launch a digital presence that feels premium and performs reliably.</p>
-                        </div>
-                        <div class="flex flex-col gap-4 sm:flex-row lg:justify-end">
-                            <a href="contact.html" class="btn-primary inline-flex items-center justify-center rounded-full px-6 py-4 text-sm font-semibold">Contact our team</a>
-                            <a href="mailto:info@digitalbooster.com" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900">Send an email</a>
-                        </div>
+        <section class="section">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="eyebrow">Process</span>
+                    <h2>How we turn strategy into growth.</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <span>Discover</span>
+                        <h4>Research</h4>
+                        <p>We audit your business, competitors and audience to uncover growth opportunities.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>Plan</span>
+                        <h4>Strategy</h4>
+                        <p>We create campaigns, content and roadmaps aligned to your objectives.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>Launch</span>
+                        <h4>Execution</h4>
+                        <p>We deploy creative, ads and web experiences designed to convert.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>Grow</span>
+                        <h4>Optimize</h4>
+                        <p>We refine campaigns, drive performance and keep momentum moving upward.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-900 text-slate-200">
-        <div class="container mx-auto px-4 py-16">
-            <div class="grid gap-10 md:grid-cols-3">
-                <div>
-                    <a href="index.html" class="inline-flex items-center gap-3 text-white">
-                        <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
-                        <span class="text-lg font-semibold">Digital Booster</span>
-                    </a>
-                    <p class="mt-6 max-w-md text-sm leading-7 text-slate-400">A modern digital agency with friendly support and step-by-step growth plans.</p>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Contact</h3>
-                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
-                        <li><a href="mailto:info@digitalbooster.com">info@digitalbooster.com</a></li>
-                        <li><a href="contact.html">Contact page</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Navigation</h3>
-                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                        <li><a href="index.html" class="hover:text-white">Home</a></li>
-                        <li><a href="index.html#about" class="hover:text-white">About</a></li>
-                        <li><a href="service.html" class="hover:text-white">Services</a></li>
-                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h3>DigitalBooster</h3>
+                <p>Premium digital marketing for ambitious companies.</p>
             </div>
-            <div class="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">&copy; 2026 Digital Booster. All rights reserved.</div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="service.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>+91 63790 94144<br>mdhariz2311@gmail.com</p>
+            </div>
         </div>
+        <div class="copyright">&copy; 2026 DigitalBooster. All rights reserved.</div>
     </footer>
+    
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <a href="tel:+15551234567" class="floating-btn call-float" aria-label="Call Digital Booster"><i class="fas fa-phone-alt"></i></a>
-    <a href="https://wa.me/15551234567" class="floating-btn whatsapp-float" target="_blank" rel="noreferrer noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a class="floating floating-left"
+href="tel:+916379094144"
+aria-label="Call">
 
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
+<i class="fa-solid fa-phone"></i>
+
+</a>
+
+<a class="floating floating-right"
+href="https://wa.me/916379094144"
+target="_blank"
+rel="noreferrer"
+aria-label="WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+    <script src="script.js"></script>
 </body>
 </html>
