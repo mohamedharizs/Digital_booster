@@ -71,6 +71,17 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(section);
   });
 
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll(".animated-card").forEach((card) => {
+    cardObserver.observe(card);
+  });
+
   const contactForm = document.getElementById("contactForm");
   const successPopup = document.getElementById("successPopup");
   const errorPopup = document.getElementById("errorPopup");
