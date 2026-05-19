@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -23,6 +24,8 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--surface);
   color: var(--text);
+  overflow-x: hidden;
+  position: relative;
 }
 
 img {
@@ -1332,14 +1335,75 @@ button {
   animation: fabPulse 2.6s infinite ease-out;
 }
 
-@media (max-width:480px) {
+@media (max-width:768px) {
+  body {
+    padding-bottom: 90px;
+  }
+
   .floating {
-    width: 56px;
-    height: 56px;
+    width: 55px;
+    height: 55px;
+    bottom: 18px;
+    font-size: 1.25rem;
+    box-shadow: 0 16px 32px rgba(2, 6, 23, 0.2);
+  }
+
+  .floating:hover,
+  .floating:focus {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(2, 6, 23, 0.25);
+  }
+
+  .floating-left {
+    left: 18px;
+  }
+
+  .floating-right {
+    right: 18px;
   }
 
   .floating::after {
-    width: 56px;
-    height: 56px;
+    width: 55px;
+    height: 55px;
+  }
+
+  /* Prevent horizontal layout shifts and scrolling */
+  .container, 
+  .hero-grid, 
+  .contact-grid, 
+  .portfolio-grid, 
+  .stacked-grid, 
+  .grid-3, 
+  .grid-4, 
+  .process-grid, 
+  .cards {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Ensure cards never exceed screen width */
+  .card, 
+  .animated-card, 
+  .portfolio-card, 
+  .panel-card, 
+  .contact-panel, 
+  .contact-form {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Reduce animation movement distance on mobile to prevent horizontal overflow */
+  .slide-left {
+    transform: translateX(-40px);
+  }
+
+  .slide-right {
+    transform: translateX(40px);
+  }
+
+  .slide-left.in-view, 
+  .slide-right.in-view {
+    transform: translateX(0);
   }
 }
