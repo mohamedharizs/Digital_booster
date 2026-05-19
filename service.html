@@ -1,262 +1,250 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - DigitalBoost Agency</title>
+    <title>Services | Digital Booster</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb', // Blue
-                        secondary: '#1f2937', // Dark Gray
-                        accent: '#f59e0b', // Amber
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p8Ahn6RJxU1lXW8vAMT8qI6bnv3KHpbx7AjvK5X73ckmVZqQddqZnXQq3bvj+kBW5x0wR1CtJrHhXsD0PxE2Qg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            color-scheme: light;
+            --color-primary: #0f72ff;
+            --color-secondary: #0f172a;
+            --color-surface: #f8fafc;
+            --color-muted: #64748b;
+            --color-accent: #22c55e;
+        }
+
         html {
             scroll-behavior: smooth;
         }
-        .page-header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--color-secondary);
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+
+        .btn-primary {
+            background: var(--color-primary);
             color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
+        }
+
+        .btn-primary:hover {
+            background: #0d5fd6;
+        }
+
+        .page-header {
+            background: radial-gradient(circle at top right, rgba(15, 114, 255, 0.2), transparent 35%),
+                linear-gradient(180deg, rgba(15, 114, 255, 0.16), rgba(248, 250, 252, 0.95));
+        }
+
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 18px;
+            width: 58px;
+            height: 58px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            color: white;
             text-decoration: none;
-            transition: transform 0.3s;
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+            transition: transform 0.24s ease, box-shadow 0.24s ease;
+            z-index: 50;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+
+        .floating-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .call-float {
+            left: 18px;
+            background: var(--color-secondary);
+        }
+
+        .whatsapp-float {
+            right: 18px;
+            background: #25d366;
+        }
+
+        .nav-link {
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800">
-
-    <!-- Navbar -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto pl-0 pr-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-rocket text-primary text-2xl"></i>
-                <span class="text-2xl font-bold text-secondary">DigitalBoost</span>
-            </div>
-            <div class="flex items-center space-8">
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="index.html" class="text-secondary hover:text-primary transition">Home</a></li>
-                    <li><a href="#services" class="text-secondary hover:text-primary transition">Services</a></li>
-                    <li><a href="contact.html" class="text-secondary hover:text-primary transition">Contact</a></li>
-                </ul>
-                <a href="tel:+15551234567" class="hidden md:block bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full ml-8 transition">
-                    <i class="fas fa-phone-alt mr-2"></i>Call Now
+<body class="bg-slate-50 text-slate-900">
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
+                <span class="text-lg font-semibold tracking-tight">Digital Booster</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="service.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center gap-3">
+                <a href="tel:+15551234567" class="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-sm">
+                    <i class="fas fa-phone-alt"></i> Call
                 </a>
             </div>
-            <button class="md:hidden text-secondary" id="mobile-menu-btn">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-700" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-2">
-            <a href="index.html" class="block py-2 text-secondary hover:text-primary">Home</a>
-            <a href="#services" class="block py-2 text-secondary hover:text-primary">Services</a>
-            <a href="contact.html" class="block py-2 text-secondary hover:text-primary">Contact</a>
-            <a href="tel:+15551234567" class="block py-2 bg-primary text-white font-semibold text-center rounded-full mt-2">
-                <i class="fas fa-phone-alt mr-2"></i>Call Now
-            </a>
+        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+            <a href="index.html" class="block py-2 text-slate-700">Home</a>
+            <a href="index.html#about" class="block py-2 text-slate-700">About</a>
+            <a href="service.html" class="block py-2 text-slate-700">Services</a>
+            <a href="contact.html" class="block py-2 text-slate-700">Contact</a>
+            <a href="tel:+15551234567" class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-white transition">Call Now</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Page Header -->
-    <section class="page-header h-64 flex items-center">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Our Services</h1>
-            <p class="text-xl md:text-2xl">Comprehensive digital marketing solutions for your business</p>
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- SEO Optimization -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fas fa-search text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">SEO Optimization</h3>
-                    <p class="text-gray-600 mb-4">Improve your search engine rankings and drive organic traffic to your website with our expert SEO strategies.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Keyword research & analysis</li>
-                        <li>• On-page optimization</li>
-                        <li>• Technical SEO</li>
-                        <li>• Link building</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
-                </div>
-
-                <!-- Social Media Marketing -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fab fa-facebook text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">Social Media Marketing</h3>
-                    <p class="text-gray-600 mb-4">Build your brand presence and engage with your audience on social platforms to increase visibility and conversions.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Content creation</li>
-                        <li>• Community management</li>
-                        <li>• Paid advertising</li>
-                        <li>• Analytics & reporting</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
-                </div>
-
-                <!-- Website Development -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fas fa-code text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">Website Development</h3>
-                    <p class="text-gray-600 mb-4">Create stunning, responsive websites that convert visitors into customers with modern design and functionality.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Responsive design</li>
-                        <li>• E-commerce solutions</li>
-                        <li>• CMS integration</li>
-                        <li>• Performance optimization</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
-                </div>
-
-                <!-- Branding -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fas fa-palette text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">Branding</h3>
-                    <p class="text-gray-600 mb-4">Develop a strong brand identity that resonates with your target audience and sets you apart from competitors.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Logo design</li>
-                        <li>• Brand guidelines</li>
-                        <li>• Visual identity</li>
-                        <li>• Brand strategy</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
-                </div>
-
-                <!-- Content Creation -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fas fa-pen text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">Content Creation</h3>
-                    <p class="text-gray-600 mb-4">Engage your audience with high-quality content that drives traffic, builds trust, and increases conversions.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Blog writing</li>
-                        <li>• Video production</li>
-                        <li>• Infographics</li>
-                        <li>• Copywriting</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
-                </div>
-
-                <!-- Ads Management -->
-                <div class="bg-white rounded-lg shadow-lg p-6 service-card transition">
-                    <i class="fas fa-bullhorn text-4xl text-primary mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-2">Ads Management</h3>
-                    <p class="text-gray-600 mb-4">Maximize your ROI with expertly managed paid advertising campaigns across all major platforms.</p>
-                    <ul class="text-gray-600 mb-4 space-y-1">
-                        <li>• Google Ads</li>
-                        <li>• Facebook/Instagram Ads</li>
-                        <li>• Campaign optimization</li>
-                        <li>• Performance tracking</li>
-                    </ul>
-                    <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition">Get Started</a>
+    <main>
+        <section class="page-header py-24">
+            <div class="container mx-auto px-4 text-center text-slate-900">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Our services</p>
+                <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Digital marketing services designed to grow your brand.</h1>
+                <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">From SEO to websites and social media, we deliver polished digital solutions that feel simple and professional.</p>
+                <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <a href="contact.html" class="btn-primary inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold shadow-lg">Book a strategy call</a>
+                    <a href="index.html#about" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 transition hover:border-slate-400">Learn about us</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-primary">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h2 class="text-4xl font-bold mb-4">Ready to Boost Your Digital Presence?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Let's discuss how we can help your business grow online. Contact us today for a free consultation.</p>
-            <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-semibold py-3 px-8 rounded-full transition">Get Free Consultation</a>
-        </div>
-    </section>
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">What we do</p>
+                    <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Expert digital services for every stage of growth.</h2>
+                </div>
 
-    <!-- Footer -->
-    <footer class="bg-secondary text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-rocket text-primary text-2xl"></i>
-                        <span class="text-2xl font-bold">DigitalBoost</span>
-                    </div>
-                    <p class="text-gray-400">Empowering businesses with innovative digital marketing solutions.</p>
+                <div class="mt-14 grid gap-6 lg:grid-cols-3">
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">SEO Optimization</h3>
+                        <p class="mt-4 text-slate-600">Boost organic traffic with a reliable SEO strategy and technical optimization.</p>
+                    </article>
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">Social Media</h3>
+                        <p class="mt-4 text-slate-600">Create consistent content, paid ads, and audience engagement on social platforms.</p>
+                    </article>
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">Website Design</h3>
+                        <p class="mt-4 text-slate-600">Launch a professional website with modern design, fast performance, and strong mobile usability.</p>
+                    </article>
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fas fa-bullhorn text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">Ads Management</h3>
+                        <p class="mt-4 text-slate-600">Grow with ads that target your best customers and improve campaign performance over time.</p>
+                    </article>
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fas fa-pen-nib text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">Content Creation</h3>
+                        <p class="mt-4 text-slate-600">Stand out with copy, visuals, and campaigns that clearly communicate your message.</p>
+                    </article>
+                    <article class="section-card rounded-[2rem] bg-white p-8 shadow-sm">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                            <i class="fas fa-shield-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-slate-900">Brand Strategy</h3>
+                        <p class="mt-4 text-slate-600">Clarify your positioning, messaging, and visual identity for consistent audience impact.</p>
+                    </article>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">SEO Optimization</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Social Media</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Web Development</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Branding</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="rounded-[2rem] bg-white p-10 shadow-xl sm:p-14">
+                    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Start your project</p>
+                            <h2 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Get a custom plan for your business.</h2>
+                            <p class="mt-5 text-slate-600">We’ll help you choose the right services and launch a digital presence that feels premium and performs reliably.</p>
+                        </div>
+                        <div class="flex flex-col gap-4 sm:flex-row lg:justify-end">
+                            <a href="contact.html" class="btn-primary inline-flex items-center justify-center rounded-full px-6 py-4 text-sm font-semibold">Contact our team</a>
+                            <a href="mailto:info@digitalbooster.com" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-semibold text-slate-900">Send an email</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 DigitalBoost Agency. All rights reserved.</p>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-200">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid gap-10 md:grid-cols-3">
+                <div>
+                    <a href="index.html" class="inline-flex items-center gap-3 text-white">
+                        <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
+                        <span class="text-lg font-semibold">Digital Booster</span>
+                    </a>
+                    <p class="mt-6 max-w-md text-sm leading-7 text-slate-400">A modern digital agency with friendly support and step-by-step growth plans.</p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Contact</h3>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                        <li><a href="mailto:info@digitalbooster.com">info@digitalbooster.com</a></li>
+                        <li><a href="contact.html">Contact page</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Navigation</h3>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-white">About</a></li>
+                        <li><a href="service.html" class="hover:text-white">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
             </div>
+            <div class="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">&copy; 2026 Digital Booster. All rights reserved.</div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/15551234567" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="tel:+15551234567" class="floating-btn call-float" aria-label="Call Digital Booster"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/15551234567" class="floating-btn whatsapp-float" target="_blank" rel="noreferrer noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     </script>
-
 </body>
 </html>

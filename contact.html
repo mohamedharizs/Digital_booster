@@ -1,266 +1,257 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - DigitalBoost Agency</title>
+    <title>Contact | Digital Booster</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#2563eb', // Blue
-                        secondary: '#1f2937', // Dark Gray
-                        accent: '#f59e0b', // Amber
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p8Ahn6RJxU1lXW8vAMT8qI6bnv3KHpbx7AjvK5X73ckmVZqQddqZnXQq3bvj+kBW5x0wR1CtJrHhXsD0PxE2Qg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            color-scheme: light;
+            --color-primary: #0f72ff;
+            --color-secondary: #0f172a;
+            --color-surface: #f8fafc;
+            --color-muted: #64748b;
+            --color-accent: #22c55e;
+        }
+
         html {
             scroll-behavior: smooth;
         }
-        .page-header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80');
-            background-size: cover;
-            background-position: center;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--color-secondary);
         }
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+
+        .btn-primary {
+            background: var(--color-primary);
             color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
+        }
+
+        .btn-primary:hover {
+            background: #0d5fd6;
+        }
+
+        .page-header {
+            background: radial-gradient(circle at top left, rgba(15, 114, 255, 0.2), transparent 35%),
+                linear-gradient(180deg, rgba(248, 250, 252, 0.95), rgba(15, 23, 42, 0.02));
+        }
+
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 18px;
+            width: 58px;
+            height: 58px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            color: white;
             text-decoration: none;
-            transition: transform 0.3s;
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+            transition: transform 0.24s ease, box-shadow 0.24s ease;
+            z-index: 50;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+
+        .floating-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .call-float {
+            left: 18px;
+            background: var(--color-secondary);
+        }
+
+        .whatsapp-float {
+            right: 18px;
+            background: #25d366;
+        }
+
+        .nav-link {
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary);
         }
     </style>
 </head>
-<body class="font-sans text-gray-800">
-
-    <!-- Navbar -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto pl-0 pr-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fas fa-rocket text-primary text-2xl"></i>
-                <span class="text-2xl font-bold text-secondary">DigitalBoost</span>
-            </div>
-            <div class="flex items-center space-8">
-                <ul class="hidden md:flex space-x-8">
-                    <li><a href="index.html" class="text-secondary hover:text-primary transition">Home</a></li>
-                    <li><a href="service.html" class="text-secondary hover:text-primary transition">Services</a></li>
-                    <li><a href="#contact" class="text-secondary hover:text-primary transition">Contact</a></li>
-                </ul>
-                <a href="tel:+15551234567" class="hidden md:block bg-primary hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full ml-8 transition">
-                    <i class="fas fa-phone-alt mr-2"></i>Call Now
+<body class="bg-slate-50 text-slate-900">
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
+                <span class="text-lg font-semibold tracking-tight">Digital Booster</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="service.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center gap-3">
+                <a href="tel:+15551234567" class="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold shadow-sm">
+                    <i class="fas fa-phone-alt"></i> Call
                 </a>
             </div>
-            <button class="md:hidden text-secondary" id="mobile-menu-btn">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" class="md:hidden text-slate-700" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-2">
-            <a href="index.html" class="block py-2 text-secondary hover:text-primary">Home</a>
-            <a href="service.html" class="block py-2 text-secondary hover:text-primary">Services</a>
-            <a href="#contact" class="block py-2 text-secondary hover:text-primary">Contact</a>
-            <a href="tel:+15551234567" class="block py-2 bg-primary text-white font-semibold text-center rounded-full mt-2">
-                <i class="fas fa-phone-alt mr-2"></i>Call Now
-            </a>
+        <div id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden">
+            <a href="index.html" class="block py-2 text-slate-700">Home</a>
+            <a href="index.html#about" class="block py-2 text-slate-700">About</a>
+            <a href="service.html" class="block py-2 text-slate-700">Services</a>
+            <a href="contact.html" class="block py-2 text-slate-700">Contact</a>
+            <a href="tel:+15551234567" class="mt-3 inline-flex w-full items-center justify-center rounded-full bg-slate-900 px-4 py-3 text-white transition">Call Now</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Page Header -->
-    <section class="page-header h-64 flex items-center">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Contact Us</h1>
-            <p class="text-xl md:text-2xl">Get in touch with our team to discuss your digital marketing needs</p>
-        </div>
-    </section>
+    <main>
+        <section class="page-header py-24">
+            <div class="container mx-auto px-4 text-center text-slate-900">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Contact</p>
+                <h1 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Let’s talk about your next digital project.</h1>
+                <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600">Use the form below, call us, or send an email and we’ll respond quickly with a tailored plan.</p>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Information -->
-                <div>
-                    <h2 class="text-3xl font-bold text-secondary mb-8">Get In Touch</h2>
-                    <div class="space-y-6">
-                        <!-- Phone -->
-                        <div class="flex items-center">
-                            <div class="bg-primary text-white p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-secondary">Phone</h3>
-                                <p class="text-gray-600">+1 (555) 123-4567</p>
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="grid gap-12 lg:grid-cols-2">
+                    <div class="space-y-8">
+                        <div class="rounded-[2rem] bg-white p-8 shadow-sm">
+                            <h2 class="text-3xl font-bold text-slate-900">Contact Information</h2>
+                            <p class="mt-4 text-slate-600">Reach out to our friendly team to start your next campaign, website redesign, or brand refresh.</p>
+                            <div class="mt-8 space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                                        <i class="fas fa-phone-alt text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Phone</p>
+                                        <a href="tel:+15551234567" class="text-slate-600">+1 (555) 123-4567</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                                        <i class="fas fa-envelope text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Email</p>
+                                        <a href="mailto:info@digitalbooster.com" class="text-slate-600">info@digitalbooster.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="mt-1 inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-100 text-sky-600">
+                                        <i class="fas fa-map-marker-alt text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-slate-900">Address</p>
+                                        <p class="text-slate-600">123 Digital Street, Tech City, TC 12345</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Email -->
-                        <div class="flex items-center">
-                            <div class="bg-primary text-white p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-secondary">Email</h3>
-                                <p class="text-gray-600">info@digitalboost.com</p>
-                            </div>
-                        </div>
-
-                        <!-- Address -->
-                        <div class="flex items-start">
-                            <div class="bg-primary text-white p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-secondary">Address</h3>
-                                <p class="text-gray-600">123 Digital Street<br>Tech City, TC 12345<br>United States</p>
+                        <div class="rounded-[2rem] bg-white p-8 shadow-sm">
+                            <h3 class="text-2xl font-semibold text-slate-900">Follow us</h3>
+                            <div class="mt-6 flex flex-wrap gap-4">
+                                <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Social Media -->
-                    <div class="mt-8">
-                        <h3 class="text-lg font-semibold text-secondary mb-4">Follow Us</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
-                                <i class="fab fa-facebook text-xl"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                            <a href="#" class="bg-primary hover:bg-blue-700 text-white p-3 rounded-full transition">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                        </div>
+                    <div class="rounded-[2rem] bg-white p-8 shadow-sm">
+                        <h2 class="text-3xl font-bold text-slate-900">Send us a message</h2>
+                        <form action="#" method="POST" class="mt-8 space-y-6">
+                            <div>
+                                <label for="name" class="text-sm font-medium text-slate-700">Name</label>
+                                <input id="name" name="name" type="text" required class="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100" />
+                            </div>
+                            <div>
+                                <label for="email" class="text-sm font-medium text-slate-700">Email</label>
+                                <input id="email" name="email" type="email" required class="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100" />
+                            </div>
+                            <div>
+                                <label for="message" class="text-sm font-medium text-slate-700">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="mt-3 w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-100"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-semibold">Send Message</button>
+                        </form>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-secondary mb-6">Send Us a Message</h2>
-                    <form action="#" method="POST" class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Google Maps Embed -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-secondary mb-4">Find Us</h2>
-                <p class="text-xl text-gray-600">Visit our office or get directions</p>
-            </div>
-            <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.241264875045!2d-73.98784868459375!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1640992800000!5m2!1sen!2sus"
-                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-secondary text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-rocket text-primary text-2xl"></i>
-                        <span class="text-2xl font-bold">DigitalBoost</span>
+        <section class="py-20 bg-slate-50">
+            <div class="container mx-auto px-4">
+                <div class="rounded-[2rem] bg-white p-8 shadow-sm">
+                    <h3 class="text-2xl font-semibold text-slate-900">Office Location</h3>
+                    <p class="mt-3 text-slate-600">Visit our office or share this page with a team member.</p>
+                    <div class="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-200">
+                        <iframe class="h-80 w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.241264875045!2d-73.98784868459375!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1640992800000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Digital Booster office location"></iframe>
                     </div>
-                    <p class="text-gray-400">Empowering businesses with innovative digital marketing solutions.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-200">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid gap-10 md:grid-cols-3">
+                <div>
+                    <a href="index.html" class="inline-flex items-center gap-3 text-white">
+                        <img src="images/logo.svg" alt="Digital Booster logo" class="h-10 w-10" />
+                        <span class="text-lg font-semibold">Digital Booster</span>
+                    </a>
+                    <p class="mt-6 max-w-md text-sm leading-7 text-slate-400">We make digital marketing easy to understand and simple to manage.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Services</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Contact</h3>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                        <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+                        <li><a href="mailto:info@digitalbooster.com">info@digitalbooster.com</a></li>
+                        <li><a href="service.html">Services page</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">SEO Optimization</a></li>
-                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Social Media</a></li>
-                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Web Development</a></li>
-                        <li><a href="service.html" class="text-gray-400 hover:text-white transition">Branding</a></li>
+                    <h3 class="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Navigation</h3>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-white">About</a></li>
+                        <li><a href="service.html" class="hover:text-white">Services</a></li>
+                        <li><a href="contact.html" class="hover:text-white">Contact</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-facebook text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-twitter text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
-                    </div>
-                </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 DigitalBoost Agency. All rights reserved.</p>
-            </div>
+            <div class="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">&copy; 2026 Digital Booster. All rights reserved.</div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/15551234567" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <a href="tel:+15551234567" class="floating-btn call-float" aria-label="Call Digital Booster"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/15551234567" class="floating-btn whatsapp-float" target="_blank" rel="noreferrer noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     </script>
-
 </body>
 </html>
