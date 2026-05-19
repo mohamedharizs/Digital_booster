@@ -2,21 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const mobileBtn = document.getElementById("mobileBtn");
   const menu = document.getElementById("menu");
   mobileBtn.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("menu-open");
-    if (isOpen) {
-      menu.style.display = "flex";
-      menu.style.flexDirection = "column";
-      menu.style.gap = "16px";
-      menu.style.padding = "18px 0";
-      menu.style.background = "rgba(15, 23, 42, 0.96)";
-      menu.style.position = "absolute";
-      menu.style.top = "100%";
-      menu.style.left = "0";
-      menu.style.right = "0";
-      menu.style.zIndex = "89";
-    } else {
-      menu.style.display = "none";
-    }
+    menu.classList.toggle("menu-open");
   });
 
   // Dropdown behaviour: desktop uses CSS hover; mobile toggles submenu on click
@@ -51,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (target) {
           event.preventDefault();
           target.scrollIntoView({behavior: "smooth", block: "start"});
-          if (window.innerWidth < 680) {
-            menu.style.display = "none";
+          if (window.innerWidth < 768) {
+            menu.classList.remove("menu-open");
           }
         }
       }
