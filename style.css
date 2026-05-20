@@ -1222,7 +1222,7 @@ button {
 }
 
 .brand-logo{
- height: 80px;
+ height: 55px;
  width:auto;
  object-fit:contain;
  transition:.3s;
@@ -1274,7 +1274,7 @@ button {
 
   /* text logo on mobile */
   .brand-logo{
-    height:28px;          /* increase text logo size */
+    height:32px;          /* increase text logo size */
     width:auto;
     content:url("images/logo-text.png"); /* use dark logo text */
   }
