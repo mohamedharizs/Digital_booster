@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --white: #ffffff;
   --nav: #0f172a;
   --text: #0f172a;
@@ -1196,6 +1196,83 @@ button {
 
 .muted {
   color: var(--muted);
+}
+
+/* Branding: image logo styles */
+.brand{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+
+.brand-symbol{
+ background:white;
+ padding:8px 10px;
+ border-radius:10px;
+ width:fit-content;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.brand-symbol-img{
+ height:40px;
+ width:auto;
+ display:block;
+}
+
+.brand-logo{
+ height: 140px;
+ width:auto;
+ object-fit:contain;
+ transition:.3s;
+ display:block;
+}
+
+.brand-logo:hover{
+ transform:scale(1.05);
+}
+
+.brand-symbol:hover{
+ transform:scale(1.05);
+}
+
+.footer-logo{
+ width:220px;
+ background: white;
+ padding:8px 10px;
+ border-radius: 20px;
+ max-width:100%;
+ display:block;
+ margin:auto;
+}
+
+.brand-logo,
+.footer-logo{
+ max-width:100%;
+}
+
+@media(max-width:768px){
+  .brand{
+    background:none;
+    padding:0;
+  }
+
+  .brand-symbol{
+    padding:6px 8px;
+  }
+
+  .brand-logo{
+    height:28px;
+  }
+
+  .brand-symbol-img{
+    height:34px;
+  }
+
+  .footer-logo{
+    width:170px;
+  }
 }
 
 .contact-list {
