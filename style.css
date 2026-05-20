@@ -1368,14 +1368,14 @@ button {
   }
 
   /* Prevent horizontal layout shifts and scrolling */
-  .container, 
-  .hero-grid, 
-  .contact-grid, 
-  .portfolio-grid, 
-  .stacked-grid, 
-  .grid-3, 
-  .grid-4, 
-  .process-grid, 
+  .container,
+  .hero-grid,
+  .contact-grid,
+  .portfolio-grid,
+  .stacked-grid,
+  .grid-3,
+  .grid-4,
+  .process-grid,
   .cards {
     max-width: 100%;
     box-sizing: border-box;
@@ -1383,11 +1383,11 @@ button {
   }
 
   /* Ensure cards never exceed screen width */
-  .card, 
-  .animated-card, 
-  .portfolio-card, 
-  .panel-card, 
-  .contact-panel, 
+  .card,
+  .animated-card,
+  .portfolio-card,
+  .panel-card,
+  .contact-panel,
   .contact-form {
     max-width: 100%;
     box-sizing: border-box;
@@ -1402,7 +1402,7 @@ button {
     transform: translateX(40px);
   }
 
-  .slide-left.in-view, 
+  .slide-left.in-view,
   .slide-right.in-view {
     transform: translateX(0);
   }
