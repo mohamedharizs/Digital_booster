@@ -1253,28 +1253,43 @@ button {
 }
 
 @media(max-width:768px){
+
   .brand{
     background:none;
     padding:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
   }
 
+  /* symbol logo */
   .brand-symbol{
-    padding:6px 8px;
-  }
-
-  .brand-logo{
-    height:28px;
+    padding:4px 6px;
   }
 
   .brand-symbol-img{
-    height:34px;
+    height:38px;
+    width:auto;
   }
 
+  /* text logo on mobile */
+  .brand-logo{
+    height:40px;          /* increase text logo size */
+    width:auto;
+    content:url("images/logo-text.png"); /* use dark logo text */
+  }
+
+  /* footer logo */
   .footer-logo{
     width:170px;
   }
-}
 
+  .nav .btn-primary{
+    padding:10px 14px;
+    font-size:14px;
+  }
+
+}
 .contact-list {
   list-style: none;
   padding: 0;
