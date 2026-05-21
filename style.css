@@ -52,7 +52,7 @@ button {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.96);
+  background: rgba(0, 0, 0, 0.96);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 90;
@@ -63,7 +63,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 18px 0;
+  padding: 0px 0;
 }
 
 .brand {
@@ -873,7 +873,9 @@ button {
 
   .nav-inner {
     padding: 14px 18px;
-    gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .brand {
@@ -926,10 +928,16 @@ button {
 
   .menu .menu-item {
     width: 100%;
+    display: flex;
+    text-align: center;
     justify-content: center;
   }
 
   .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
     justify-content: center;
     gap: 8px;
   }
@@ -943,8 +951,13 @@ button {
   }
 
   .nav-actions {
-    width: 100%;
-    justify-content: flex-end;
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-btn{
+    margin-left: auto;
   }
 
   .btn {
@@ -1202,7 +1215,7 @@ button {
 .brand{
  display:flex;
  align-items:center;
- gap:10px;
+ gap:12px;
 }
 
 .brand-symbol{
@@ -1216,13 +1229,13 @@ button {
 }
 
 .brand-symbol-img{
- height:40px;
+ height:38px;
  width:auto;
  display:block;
 }
 
 .brand-logo{
- height: 140px;
+ height: 65px;
  width:auto;
  object-fit:contain;
  transition:.3s;
@@ -1238,13 +1251,13 @@ button {
 }
 
 .footer-logo{
- width:220px;
+ width:100px;
  background: white;
  padding:8px 10px;
  border-radius: 20px;
  max-width:100%;
  display:block;
- margin:auto;
+ margin: 5px;;
 }
 
 .brand-logo,
@@ -1281,13 +1294,38 @@ button {
 
   /* footer logo */
   .footer-logo{
-    width:170px;
+    width: 100px;
+    margin: 50px auto 0; /* center footer logo and add top margin */
   }
 
   .nav .btn-primary{
     padding:12px 14px;
     font-size:14px;
   }
+
+  .menu .menu-item{
+    width:100%;
+    display:block;
+  }
+  
+  .dropdown-toggle{
+    width:100%;
+    text-align:center;
+    justify-content:center;
+    display:flex;
+    padding-left:0;
+  }
+
+  .dropdown{
+   width:100%;
+   display:flex;
+   justify-content:center;
+  }
+  
+  .dropdown-menu{
+   text-align:center;
+  }
+
 
 }
 .contact-list {
