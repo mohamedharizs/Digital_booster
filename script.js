@@ -82,6 +82,66 @@ document.addEventListener("DOMContentLoaded", function() {
     cardObserver.observe(card);
   });
 
+  const fadeUpObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll(".fade-up").forEach((element) => {
+    fadeUpObserver.observe(element);
+  });
+
+  // Animated Stats Counter
+  const statNumbers = document.querySelectorAll(".stat-number");
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute("data-target"));
+        animateCounter(entry.target, target);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.5});
+
+  statNumbers.forEach((stat) => {
+    statsObserver.observe(stat);
+  });
+
+  function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + (target === 95 ? "%" : target === 24 ? "/7" : "+");
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current);
+      }
+    }, 30);
+  }
+
+  // FAQ Accordion
+  const faqQuestions = document.querySelectorAll(".faq-question");
+  faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+      const faqItem = question.closest(".faq-item");
+      const isActive = faqItem.classList.contains("active");
+
+      // Close all other FAQs
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      // Toggle current FAQ
+      if (!isActive) {
+        faqItem.classList.add("active");
+      }
+    });
+  });
+
   const contactForm = document.getElementById("contactForm");
   const successPopup = document.getElementById("successPopup");
   const errorPopup = document.getElementById("errorPopup");
